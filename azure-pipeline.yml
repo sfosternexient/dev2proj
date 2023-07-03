@@ -4,9 +4,9 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 pr:
-  branches:
-    include:
-    - create-docker
+  # branches:
+  #   include:
+  #   - create-docker
   paths:
     exclude:
     - README.md
@@ -24,7 +24,10 @@ steps:
     npm install
     npm run lint
     npm run test
-    npm run build
+    npm run build-container
+    npm run start-container
+    npm run stop-container
+    npm run remove-container
   displayName: 'npm install, lint and build'
 
 #       merge simulation
